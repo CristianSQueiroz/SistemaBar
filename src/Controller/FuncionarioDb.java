@@ -16,15 +16,15 @@ import java.util.HashMap;
  */
 public class FuncionarioDb {
 
-    private String cmd; 
-    
+    private String cmd;
+
     public static void cadastrar(Funcionario f) {
         String cmd = "INSERT INTO tb_funcionario (CD_FUNCIONARIO, "
-                                                + "NM_FUNCIONARIO, "
-                                                + "DS_ENDERECO,"
-                                                + " VL_SALARIO, "
-                                                + "DS_LOGIN, "
-                                                + "DS_SENHA) "
+                + "NM_FUNCIONARIO, "
+                + "DS_ENDERECO,"
+                + " VL_SALARIO, "
+                + "DS_LOGIN, "
+                + "DS_SENHA) "
                 + "VALUES (NULL,'"
                 + f.getNmFuncionario()
                 + "','" + f.getDsEndereco()
@@ -33,9 +33,10 @@ public class FuncionarioDb {
                 + "','" + f.getDsSenha() + "')";
         MySqlConnect.getInstance().executaComandoPadrao(cmd);
     }
-    
-        public ArrayList<HashMap> getFuncionarios(HashMap atributos, HashMap restricoes,String orderby) {
-        cmd = new Util.UtilSql().montaQuery(atributos,restricoes, "TB_FUNCIONARIO",orderby);
-            return MySqlConnect.getInstance().executaConsultaPadrao(cmd);
+
+    public ArrayList<HashMap> getFuncionarios(HashMap atributos, HashMap restricoes, String orderby) {
+        cmd = new Util.UtilSql().montaQuery(atributos, restricoes, "TB_FUNCIONARIO", orderby);
+        return MySqlConnect.getInstance().executaConsultaPadrao(cmd);
     }
+
 }

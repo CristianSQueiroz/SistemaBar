@@ -45,6 +45,8 @@ public class Principal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         funcuinaMI = new javax.swing.JMenuItem();
         produtoJMI = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        BuscaFuncionario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +69,18 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(produtoJMI);
 
         jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Busca");
+
+        BuscaFuncionario.setText("jMenuItem1");
+        BuscaFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscaFuncionarioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(BuscaFuncionario);
+
+        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -92,8 +106,12 @@ public class Principal extends javax.swing.JFrame {
         abreJanela(new CadastroProduto());
     }//GEN-LAST:event_produtoJMIActionPerformed
 
+    private void BuscaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaFuncionarioActionPerformed
+        abreJanela(new ConsultaFuncionario());
+    }//GEN-LAST:event_BuscaFuncionarioActionPerformed
+
     private void abreJanela(JPanel jPanel) {
-        boolean abrirJanela = false;
+        boolean abrirJanela = true;
         if (jPanel instanceof CadastroFuncionario) {
             if (!isCadastroFuncionarioAberto) {
                 isCadastroFuncionarioAberto = true;
@@ -170,8 +188,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem BuscaFuncionario;
     private javax.swing.JMenuItem funcuinaMI;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem produtoJMI;
     // End of variables declaration//GEN-END:variables
