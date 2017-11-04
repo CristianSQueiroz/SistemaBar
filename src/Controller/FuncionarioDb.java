@@ -7,6 +7,8 @@ package Controller;
 
 import Model.Funcionario;
 import SQLUtil2.MySqlConnect;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -14,6 +16,8 @@ import SQLUtil2.MySqlConnect;
  */
 public class FuncionarioDb {
 
+    private String cmd; 
+    
     public static void cadastrar(Funcionario f) {
         String cmd = "INSERT INTO tb_funcionario (CD_FUNCIONARIO, "
                                                 + "NM_FUNCIONARIO, "
@@ -28,5 +32,10 @@ public class FuncionarioDb {
                 + "','" + f.getDsLogin()
                 + "','" + f.getDsSenha() + "')";
         MySqlConnect.getInstance().executaComandoPadrao(cmd);
+    }
+    
+        public ArrayList<HashMap> getFuncionarios(HashMap atributos, HashMap restricoes,String orderby) {
+        cmd = new Util.UtilSql().montaQuery(atributos,restricoes, "TB_FUNCIONARIO",orderby);
+            return MySqlConnect.getInstance().executaConsultaPadrao(cmd);
     }
 }
